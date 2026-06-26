@@ -13,15 +13,16 @@ app.use("/information", informationRoutes);
 
 // DB_URL = process.env.DB_URL;
 DB_URL = process.env.CLDB_URL;
-API_URL = process.env.API_URL;
+// API_URL = process.env.API_URL;
 
 async function startServer() {
   await mongoose
     .connect(DB_URL)
     .then(() => {
       console.log("Database connected!".bgGreen);
-      app.listen(API_URL, () => {
-        console.log(`App is listening on port ${API_URL}`);
+      const PORT = process.env.PORT || 3005;
+      app.listen(PORT, () => {
+        console.log(`App is listening on port ${PORT}`);
       });
     })
     .catch((error) => {
