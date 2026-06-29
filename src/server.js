@@ -9,13 +9,13 @@ app.use(express.json());
 
 const informationRoutes = require("../src/Modules/HeaderModule/Routes/header-routes");
 const techRoutes = require("../src/Modules/Technologies/Routes/tech-routes");
+const projectinfoRoutes = require("../src/Modules/ProjectModule/Routes/projectinfo-routes");
 
 app.use("/information", informationRoutes);
 app.use("/technologies", techRoutes);
+app.use("/projectinfos", projectinfoRoutes);
 
-// DB_URL = process.env.DB_URL;
 DB_URL = process.env.CLDB_URL;
-// API_URL = process.env.API_URL;
 
 async function startServer() {
   await mongoose
