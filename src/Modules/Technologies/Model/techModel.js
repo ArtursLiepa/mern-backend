@@ -7,6 +7,6 @@ const techSchema = new Schema({
   status: { type: String, required: true },
 });
 
-const tech = mongoose.model("tech", techSchema);
+const technologies = mongoose.model("technologies", techSchema);
 
-module.exports = tech;
+module.exports = technologies;
