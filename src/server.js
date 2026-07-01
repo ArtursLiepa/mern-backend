@@ -15,7 +15,10 @@ app.use("/information", informationRoutes);
 app.use("/technologies", techRoutes);
 app.use("/projectinfos", projectinfoRoutes);
 
-DB_URL = process.env.CLDB_URL;
+// DB_URL = process.env.CLDB_URL;
+const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${encodeURIComponent(
+  process.env.DB_PASSWORD,
+)}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;
 
 async function startServer() {
   await mongoose
