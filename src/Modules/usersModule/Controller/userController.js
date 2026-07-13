@@ -4,13 +4,15 @@ const users = require("../Model/usersModel");
 const createUser = async (req, res) => {
   try {
     const { name } = req.body;
+    const userAgent = req.headers["user-agent"];
+
     if (!name || name.length < 3) {
       return res
         .status(400)
         .json({ message: "Name must be at least 3 characters" });
     }
 
-    const user = await users.create({ name });
+    const user = await users.create({ name: name, device: userAgent });
     console.log(user);
     res.status(201).json(user);
   } catch (error) {
