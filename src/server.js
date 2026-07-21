@@ -12,12 +12,14 @@ const techRoutes = require("../src/Modules/Technologies/Routes/tech-routes");
 const projectinfoRoutes = require("../src/Modules/ProjectModule/Routes/projectinfo-routes");
 const navigationRoutes = require("../src/Modules/NavigationModule/Routes/navigationRoutes");
 const userRoutes = require("../src/Modules/usersModule/Routes/userRoutes");
+const emailRoutes = require("../src/Modules/EmailModule/Routes/emailRoutes");
 
 app.use("/information", informationRoutes);
 app.use("/technologies", techRoutes);
 app.use("/projectinfos", projectinfoRoutes);
 app.use("/navigation", navigationRoutes);
 app.use("/users", userRoutes);
+app.use("/contact", emailRoutes);
 
 // DB_URL = process.env.CLDB_URL;
 const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${encodeURIComponent(
