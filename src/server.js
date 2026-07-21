@@ -6,6 +6,7 @@ const colors = require("colors");
 const app = express();
 app.use(CORS());
 app.use(express.json());
+const dns = require("dns");
 
 const informationRoutes = require("../src/Modules/HeaderModule/Routes/header-routes");
 const techRoutes = require("../src/Modules/Technologies/Routes/tech-routes");
@@ -13,6 +14,8 @@ const projectinfoRoutes = require("../src/Modules/ProjectModule/Routes/projectin
 const navigationRoutes = require("../src/Modules/NavigationModule/Routes/navigationRoutes");
 const userRoutes = require("../src/Modules/usersModule/Routes/userRoutes");
 const emailRoutes = require("../src/Modules/EmailModule/Routes/emailRoutes");
+
+dns.setDefaultResultOrder("ipv4first");
 
 app.use("/information", informationRoutes);
 app.use("/technologies", techRoutes);
