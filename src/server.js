@@ -29,6 +29,10 @@ const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${encodeURIComponent(
   process.env.DB_PASSWORD,
 )}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;
 
+dns.lookup("smtp.gmail.com", { all: true }, (err, addresses) => {
+  console.log("DNS lookup:", addresses);
+});
+
 async function startServer() {
   await mongoose
     .connect(DB_URL)
