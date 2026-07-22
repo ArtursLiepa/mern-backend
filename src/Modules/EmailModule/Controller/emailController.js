@@ -7,10 +7,13 @@ const fs = require("fs");
 const emails = require("../Model/emailModel");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: "173.194.73.109", // Temporary test
   port: 587,
   secure: false,
   requireTLS: true,
+  tls: {
+    servername: "smtp.gmail.com",
+  },
   auth: {
     user: process.env.EMAIL_ADRESS,
     pass: process.env.EMAIL_PASSWORD,
